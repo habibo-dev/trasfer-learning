@@ -38,6 +38,14 @@
 .story-legend{display:flex;gap:15px;flex-wrap:wrap;margin-top:13px;color:#9babc2;font:9px var(--mono)}
 .legend-dot{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:5px}
 @media(max-width:650px){.story-lab{padding:13px}.story-stage,.story-stage svg{min-height:265px}.story-steps{grid-template-columns:1fr 1fr}.story-caption{gap:9px}.story-number{padding-right:9px}}
+\n
+.pro-lab{padding:22px;background:linear-gradient(145deg,#0d1727,#090f1b);border-color:#31435e}
+.pro-toolbar{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}.pro-subtitle{font-size:11px;color:var(--muted);margin-top:4px}
+.pro-controls{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;padding:17px 0;border-bottom:1px solid #29374e;margin-bottom:15px}.pro-control-group{display:flex;align-items:center;gap:12px;flex-wrap:wrap}.pro-label{font:10px var(--mono);letter-spacing:.1em;color:#91a5c2}.pro-label span{color:var(--cyan);margin-left:8px}.pro-control-group input{width:120px;accent-color:var(--cyan)}
+.pro-stage{border:1px solid #2b3d59;background:radial-gradient(ellipse at 45% 45%,#16264a 0,#0b1322 70%);border-radius:15px;overflow:hidden}.pro-stage-head{display:flex;justify-content:space-between;gap:10px;padding:12px 16px;border-bottom:1px solid #273752;font:10px var(--mono);letter-spacing:.08em;color:#8da5c5}.pro-stage-head span:last-child{color:var(--cyan)}.pro-svg-stage{border:0;border-radius:0;background:transparent;min-height:0}.pro-svg-stage svg{min-height:0;height:auto;display:block}.pro-svg-stage [data-inspect]{cursor:pointer;transition:opacity .25s,filter .25s}.pro-svg-stage [data-inspect]:focus{outline:none;filter:drop-shadow(0 0 7px #6ce5df)}
+.pro-timeline{display:flex;align-items:center;gap:12px;padding:10px 15px;border-top:1px solid #263650}.pro-timeline input{flex:1;accent-color:var(--cyan)}.pro-step-labels{display:grid;grid-template-columns:repeat(5,1fr);gap:6px;padding:0 15px 15px}.pro-step{background:#0b1321;border:1px solid #293a54;border-radius:9px;color:#8295b1;padding:10px 8px;font-size:10px;text-align:left}.pro-step span{display:block;color:#5c789b;font:10px var(--mono);margin-bottom:4px}.pro-step.active{background:#102a35;border-color:#4abebc;color:#c9fffb}.pro-step.active span{color:var(--cyan)}
+.pro-explain-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:14px;margin-top:15px}.pro-explain,.pro-inspector{padding:20px;border:1px solid #2a3a53;border-radius:14px;background:#101827}.pro-explain h3{font-size:21px;letter-spacing:-.04em;margin:10px 0}.pro-explain>p{font-size:12px;color:#aab8cc;line-height:1.8;margin:0}.pro-analogy{margin-top:18px;padding:13px 14px;border-left:2px solid var(--violet);background:#19192b;border-radius:0 9px 9px 0}.pro-analogy span{font:9px var(--mono);color:#c1adff;letter-spacing:.1em}.pro-analogy p{margin:5px 0 0;font-size:12px;color:#e0dafa;line-height:1.7}.pro-layer-buttons{display:grid;gap:7px}.pro-layer{display:flex;align-items:center;gap:10px;text-align:left;padding:11px;background:#0b1220;border:1px solid #293951;border-radius:10px;color:var(--text)}.pro-layer.active{border-color:#55c9c6;background:#10242d}.layer-swatch{width:9px;height:29px;border-radius:5px;flex-shrink:0}.pro-layer span:nth-child(2){flex:1}.pro-layer b{display:block;font-size:11px}.pro-layer small{display:block;color:#879bb6;font-size:9px;margin-top:3px}.pro-layer em{font:8px var(--mono);color:#85e9db;font-style:normal}.pro-layer[data-layer="2"] em{color:#ffcf8a}.pro-inspector-note{font-size:11px;line-height:1.8;color:#9eafc7;padding:13px;background:#0a111e;border-radius:9px;margin-top:12px}
+@media(max-width:750px){.pro-explain-grid{grid-template-columns:1fr}.pro-step-labels{grid-template-columns:1fr 1fr}.pro-step:last-child{grid-column:span 2}.pro-controls{align-items:flex-start}.pro-control-group{align-items:flex-start;flex-direction:column}.pro-svg-stage svg{min-height:235px}.pro-lab{padding:13px}}
 \n</style>
 </head>
 <body>
@@ -69,37 +77,36 @@
 </div></section>
 
 <section id="animation" class="section"><div class="container">
-<div class="section-head"><div><div class="kicker">LIVE VISUALIZATION / TRANSFER LEARNING</div><h2>Watch knowledge move.</h2></div><p>A step-by-step animation: general features are learned, reused by a new task, and optionally adapted through fine-tuning.</p></div>
-<div class="story-lab">
-<div class="story-toolbar"><span class="story-status">● INTERACTIVE MODEL STORY · CONCEPTUAL</span><div class="story-controls"><button class="story-btn" id="storyPlay">Ⅱ Pause</button><button class="story-btn" id="storyRestart">↺ Restart</button></div></div>
-<div class="story-stage">
-<svg id="transferStory" viewBox="0 0 1000 390" role="img" aria-label="Animated illustration of transfer learning from a pre-trained backbone to a new target classifier">
-<defs><linearGradient id="backboneGrad" x1="0" x2="1"><stop stop-color="#3dd9f5"/><stop offset="1" stop-color="#7884ff"/></linearGradient><linearGradient id="headGrad" x1="0" x2="1"><stop stop-color="#ffce70"/><stop offset="1" stop-color="#ff8c7d"/></linearGradient><radialGradient id="featureGlow"><stop stop-color="#a7faff" stop-opacity=".95"/><stop offset="1" stop-color="#4b72ff" stop-opacity=".05"/></radialGradient></defs>
-<g font-family="DM Mono, monospace" font-size="12" fill="#b9c9e5">
-<text x="36" y="35" fill="#67e7f0" letter-spacing="2">SOURCE DOMAIN</text><text x="36" y="54" font-size="10" fill="#8397b7">Large, diverse training set</text>
-<text x="379" y="35" fill="#83c9ff" letter-spacing="2">PRE-TRAINED BACKBONE</text><text x="379" y="54" font-size="10" fill="#8397b7">General visual representations</text>
-<text x="714" y="35" fill="#ffcf7b" letter-spacing="2">TARGET TASK</text><text x="714" y="54" font-size="10" fill="#8397b7">New labels · limited data</text>
-</g>
-<g id="sourceTiles"><rect x="38" y="118" width="75" height="75" rx="10" fill="#152d54" stroke="#527bb4"/><path d="M46 176 L65 143 L79 162 L91 136 L105 176Z" fill="#3979a7"/><circle cx="92" cy="134" r="7" fill="#ffcc84"/><rect x="38" y="204" width="75" height="75" rx="10" fill="#17294c" stroke="#527bb4"/><path d="M46 262 Q58 227 75 246 T105 237 L105 270 L46 270Z" fill="#45a4a0"/><circle cx="59" cy="220" r="7" fill="#d8e8ff"/><rect x="38" y="290" width="75" height="46" rx="8" fill="#162745" stroke="#527bb4"/><path d="M47 322 L64 301 L78 318 L94 300 L105 322Z" fill="#947fff"/><text x="75" y="357" text-anchor="middle" font-size="10" fill="#a7b9d6">IMAGE BATCH</text></g>
-<g id="connectionsA" stroke="#49d9f2" stroke-opacity=".3" stroke-width="1.2"></g>
-<g id="backboneNodes"></g>
-<g id="connectionsB" stroke="#9a9aff" stroke-opacity=".35" stroke-width="1.2"></g>
-<g id="featureMaps"><rect x="600" y="103" width="74" height="226" rx="12" fill="#14294a" stroke="#5478d8"/><text x="637" y="91" text-anchor="middle" font-size="10" fill="#a7c9ff">FEATURE MAPS</text></g>
-<g id="connectionsC" stroke="#ffc66e" stroke-opacity=".48" stroke-width="1.3"></g>
-<g id="headNodes"></g>
-<g id="outputLabels" font-family="DM Mono, monospace" font-size="11"><rect x="856" y="118" width="112" height="49" rx="9" fill="#102d2b" stroke="#55d6b0"/><text x="912" y="147" text-anchor="middle" fill="#8cf4d0">HEALTHY</text><rect x="856" y="193" width="112" height="49" rx="9" fill="#30271a" stroke="#ffc66e"/><text x="912" y="222" text-anchor="middle" fill="#ffd18b">DISEASE A</text><rect x="856" y="268" width="112" height="49" rx="9" fill="#301c2a" stroke="#ff8aa7"/><text x="912" y="297" text-anchor="middle" fill="#ffabc0">DISEASE B</text></g>
-<path id="particlePath" d="M114 156 C220 156 255 205 340 205 S490 205 600 205 S725 205 820 142" fill="none" stroke="none"/>
-<circle id="travellingParticle" r="5" fill="#fff3b0" style="offset-path:path('M114 156 C220 156 255 205 340 205 S490 205 600 205 S725 205 820 142');offset-rotate:0deg" class="data-particle"><animate attributeName="opacity" values="0.3;1;0.3" dur="1.4s" repeatCount="indefinite"/></circle>
-<g id="freezeLock"><rect x="388" y="320" width="164" height="29" rx="14" fill="#102d3e" stroke="#2e829a"/><text x="470" y="339" text-anchor="middle" font-family="DM Mono,monospace" font-size="10" fill="#81f1f5">▣ FROZEN LAYERS</text></g>
-<g id="fineTuneBadge" opacity="0"><rect x="388" y="320" width="164" height="29" rx="14" fill="#39281b" stroke="#d8944b"/><text x="470" y="339" text-anchor="middle" font-family="DM Mono,monospace" font-size="10" fill="#ffd18b">✦ WEIGHTS ADAPTING</text></g>
-</svg></div>
-<div class="story-caption"><div class="story-number" id="storyNum">01</div><div><h3 id="storyTitle">Learn reusable visual features</h3><p id="storyText">A model is pre-trained on a large source dataset. Early layers may learn edges and textures, while deeper layers can represent more complex patterns.</p></div></div>
-<div class="story-steps" id="storySteps"><div class="story-step active">01 · Pre-train</div><div class="story-step">02 · Reuse</div><div class="story-step">03 · New head</div><div class="story-step">04 · Fine-tune</div></div>
-<div class="story-legend"><span><i class="legend-dot" style="background:#4bdaf2"></i>Input & early features</span><span><i class="legend-dot" style="background:#8c8dff"></i>Pre-trained layers</span><span><i class="legend-dot" style="background:#ffc66e"></i>Trainable target head</span><span><i class="legend-dot" style="background:#78e6bc"></i>Predicted class</span></div>
+<div class="section-head"><div><div class="kicker">LIVE TEACHING STUDIO / 01</div><h2>Transfer learning, under your control.</h2></div><p>Use the controls to guide the class through each stage. Select a layer, switch strategies, pause the animation, and explain what changes.</p></div>
+<div class="story-lab pro-lab">
+<div class="pro-toolbar"><div><span class="story-status">● PRESENTATION MODE</span><div class="pro-subtitle">A guided visual model — not a live training run</div></div><div class="story-controls"><button class="story-btn" id="storyPlay">▶ Play lesson</button><button class="story-btn" id="storyRestart">↺ Restart</button></div></div>
+<div class="pro-controls">
+<div class="pro-control-group"><span class="pro-label">STRATEGY</span><div class="story-controls"><button class="story-btn active" data-strategy="feature">Feature extraction</button><button class="story-btn" data-strategy="fine">Fine-tuning</button><button class="story-btn" data-strategy="scratch">From scratch</button></div></div>
+<div class="pro-control-group"><label class="pro-label" for="storySpeed">ANIMATION SPEED <span id="storySpeedLabel">1×</span></label><input id="storySpeed" type="range" min="0.5" max="2" step="0.5" value="1"></div>
 </div>
-<div class="source-note"><b>How to read this:</b> the moving lines and nodes are an educational visualization, not a live trained model. The actual feature representations and prediction scores depend on the selected model and data.</div>
+<div class="pro-stage">
+<div class="pro-stage-head"><span id="stageBadge">STAGE 01 / 05</span><span id="stageState">BACKBONE FROZEN</span></div>
+<div class="story-stage pro-svg-stage"><svg id="transferStory" viewBox="0 0 1000 430" role="img" aria-label="Interactive transfer learning diagram. Select a layer to inspect it.">
+<defs><linearGradient id="inputGrad" x1="0" x2="1"><stop stop-color="#48d9f0"/><stop offset="1" stop-color="#688aff"/></linearGradient><linearGradient id="headGrad" x1="0" x2="1"><stop stop-color="#ffcf79"/><stop offset="1" stop-color="#ff8b91"/></linearGradient><radialGradient id="activationGlow"><stop stop-color="#aafaff" stop-opacity="1"/><stop offset="1" stop-color="#5d79ff" stop-opacity=".06"/></radialGradient><filter id="softGlow"><feGaussianBlur stdDeviation="3" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>
+<g font-family="DM Mono, monospace" font-size="12" letter-spacing="1.5">
+<text x="34" y="35" fill="#6ce5df">INPUT</text><text x="206" y="35" fill="#78cfff">PRE-TRAINED BACKBONE</text><text x="610" y="35" fill="#b9a6ff">FEATURES</text><text x="778" y="35" fill="#ffcc80">TARGET HEAD</text>
+</g>
+<g id="storyInput">
+<rect x="30" y="93" width="104" height="92" rx="12" fill="#10213a" stroke="#497bb2"/><path d="M40 163 L62 122 L83 149 L99 113 L124 163Z" fill="#3c89a0"/><circle cx="104" cy="111" r="8" fill="#ffce8a"/><text x="82" y="204" text-anchor="middle" font-size="11" fill="#c6d5eb">Source images</text>
+<rect x="30" y="231" width="104" height="92" rx="12" fill="#10213a" stroke="#497bb2"/><path d="M40 300 Q59 255 78 284 T124 271 L124 308 L40 308Z" fill="#54bca6"/><circle cx="57" cy="252" r="7" fill="#e7f1ff"/><text x="82" y="342" text-anchor="middle" font-size="11" fill="#c6d5eb">Target image</text>
+</g>
+<g id="storyEdges"></g><g id="storyLayerNodes"></g><g id="storyFeatures"></g><g id="storyHeadNodes"></g><g id="storyOutput"></g><g id="storyParticles"></g>
+<g id="storyLock"><rect x="222" y="366" width="340" height="34" rx="17" fill="#102c3a" stroke="#3d94a5"/><text x="392" y="387" text-anchor="middle" fill="#8df5f0" font-size="11" font-family="DM Mono,monospace">▣ FROZEN BACKBONE · WEIGHTS UNCHANGED</text></g>
+<g id="storyAdapt" opacity="0"><rect x="222" y="366" width="340" height="34" rx="17" fill="#3a2818" stroke="#d59b4c"/><text x="392" y="387" text-anchor="middle" fill="#ffdb9b" font-size="11" font-family="DM Mono,monospace">✦ SELECTED LAYERS CAN ADAPT</text></g>
+</svg></div>
+<div class="pro-timeline"><button class="story-btn" id="storyPrev" aria-label="Previous stage">←</button><input id="storyTimeline" type="range" min="0" max="4" step="1" value="0" aria-label="Lesson stage"><button class="story-btn" id="storyNext" aria-label="Next stage">→</button></div>
+<div class="pro-step-labels" id="storySteps"><button class="pro-step active" data-stage="0"><span>01</span> Source task</button><button class="pro-step" data-stage="1"><span>02</span> Reuse backbone</button><button class="pro-step" data-stage="2"><span>03</span> Extract features</button><button class="pro-step" data-stage="3"><span>04</span> Train new head</button><button class="pro-step" data-stage="4"><span>05</span> Adapt & predict</button></div>
+</div>
+<div class="pro-explain-grid"><div class="pro-explain"><div class="kicker" id="storyEyebrow">TEACHING NOTE · 01</div><h3 id="storyTitle">Start with a pre-trained model</h3><p id="storyText">A model has already learned useful visual representations from a large source dataset. We can reuse those parameters instead of starting with random weights.</p><div class="pro-analogy"><span>IN SIMPLE TERMS</span><p id="storyAnalogy">Like a student who already knows shapes and textures before learning a new subject.</p></div></div>
+<div class="pro-inspector"><div class="panel-title">Layer inspector</div><div class="panel-sub">Select a layer in the diagram or here.</div><div class="pro-layer-buttons"><button class="pro-layer active" data-layer="0"><span class="layer-swatch" style="background:#49d9f2"></span><span><b>Early layers</b><small>Edges & textures</small></span><em id="state0">FROZEN</em></button><button class="pro-layer" data-layer="1"><span class="layer-swatch" style="background:#788aff"></span><span><b>Deep layers</b><small>Patterns & parts</small></span><em id="state1">FROZEN</em></button><button class="pro-layer" data-layer="2"><span class="layer-swatch" style="background:#ffbd69"></span><span><b>New classifier</b><small>Target labels</small></span><em id="state2">TRAINABLE</em></button></div><div class="pro-inspector-note" id="layerDetail">Early convolutional layers often respond to local patterns such as edges, color transitions and textures. These representations can sometimes transfer across tasks.</div></div></div>
+<div class="source-note"><b>Scientific integrity:</b> the diagram and moving particles are conceptual. This page does not load a trained model or produce real predictions. The lesson illustrates the workflow; actual accuracy must come from a documented experiment.</div>
 </div></section>
-\n<section id="cnn-lab" class="section"><div class="container"><div class="section-head"><div><div class="kicker">02 / Interactive playground</div><h2>Inside a convolutional layer.</h2></div><p>Change the layer settings and see how the output shape and parameter count change. Values are calculated live using the standard convolution formula.</p></div>
+<section id="cnn-lab" class="section"><div class="container"><div class="section-head"><div><div class="kicker">02 / Interactive playground</div><h2>Inside a convolutional layer.</h2></div><p>Change the layer settings and see how the output shape and parameter count change. Values are calculated live using the standard convolution formula.</p></div>
 <div class="grid-2"><div class="panel"><div class="panel-title">Configure your layer</div><div class="panel-sub">Convolution output shape calculator</div>
 <div class="field"><div class="field-head"><label for="inSize">Input height & width</label><output id="inSizeVal">32 × 32</output></div><input id="inSize" type="range" min="8" max="128" step="1" value="32"></div>
 <div class="field"><div class="field-head"><label for="channels">Input channels</label><output id="channelsVal">3</output></div><input id="channels" type="range" min="1" max="16" step="1" value="3"></div>
@@ -177,35 +184,66 @@ function renderQuestion(){answered=false;const q=quiz[qIndex];$('qNum').textCont
 function selectAnswer(i,button){if(answered)return;answered=true;const q=quiz[qIndex];document.querySelectorAll('.answer').forEach((b,j)=>{b.disabled=true;if(j===q.correct)b.classList.add('correct');else if(j===i)b.classList.add('wrong')});if(i===q.correct){score++;$('feedback').textContent='Correct. '+q.why}else $('feedback').textContent='Not quite. '+q.why;$('quizProgress').style.width=((qIndex+1)/quiz.length*100)+'%';$('nextQuestion').disabled=false}
 $('nextQuestion').addEventListener('click',()=>{if(qIndex<quiz.length-1){qIndex++;renderQuestion()}else{$('question').textContent='You scored '+score+' out of '+quiz.length+'.';$('answers').innerHTML='';$('feedback').textContent=score===quiz.length?'Excellent. You have a strong grasp of the core ideas.':'Review the explanations and try again to reinforce the concepts.';$('nextQuestion').textContent='Try again ↺';$('nextQuestion').disabled=false;$('quizProgress').style.width='100%';$('nextQuestion').onclick=()=>{qIndex=0;score=0;$('nextQuestion').onclick=null;renderQuestion()}}});renderQuestion();
 
-/* Transfer learning animation scene builder */
+
+/* Transfer learning presentation controller */
 (function(){
- const svgNS='http://www.w3.org/2000/svg';
- const $s=id=>document.getElementById(id);
- const group=(id)=>$s(id);
- function el(tag,attrs,parent){const n=document.createElementNS(svgNS,tag);Object.entries(attrs||{}).forEach(([k,v])=>n.setAttribute(k,v));(parent||null)?.appendChild(n);return n}
- const layers=[{x:180,y:120,n:5,color:'#42d9f2',r:8},{x:300,y:135,n:6,color:'#648dff',r:7},{x:410,y:145,n:7,color:'#9a8cff',r:6}];
- const head=[{x:710,y:133,n:5},{x:780,y:155,n:4}];
- let all=[];
- layers.forEach((l,li)=>{let nodes=[];for(let i=0;i<l.n;i++){let y=l.y+i*(li===0?35:30);let n=el('circle',{cx:l.x,cy:y,r:l.r,fill:l.color,stroke:'#d7f8ff','stroke-width':'.8',class:'pulse frozen-glow',style:'animation-delay:'+(i*.13)+'s'} ,group('backboneNodes'));nodes.push({x:l.x,y,r:l.r,node:n})}all.push(nodes)});
- function connect(id,a,b,color,opacity){const g=group(id);a.forEach(p=>b.forEach(q=>el('path',{d:'M'+p.x+' '+p.y+' L'+q.x+' '+q.y,stroke:color,'stroke-opacity':opacity,'stroke-width':'.8',class:'flow'},g)))}
- connect('connectionsA',[{x:113,y:156},{x:113,y:241},{x:113,y:313}],all[0],'#45d9f0',.27);
- connect('connectionsB',all[0],all[1],'#4fcff5',.32);connect('connectionsB',all[1],all[2],'#948cff',.35);
- let feature=group('featureMaps');for(let r=0;r<5;r++)for(let col=0;col<3;col++){el('rect',{x:612+col*19,y:119+r*38,width:15,height:29,rx:3,fill:['#204b83','#276d96','#564b9e','#226f8b','#564caa'][(r+col)%5],stroke:'#8fc6ff','stroke-opacity':'.35'},feature);el('circle',{cx:619+col*19,cy:131+r*38,r:5,fill:'url(#featureGlow)',class:'pulse'},feature)}
- const hn=[];head.forEach((l,li)=>{for(let i=0;i<l.n;i++){let y=142+i*(li===0?34:38);let n=el('circle',{cx:l.x,cy:y,r:7,fill:'#ffc56e',stroke:'#fff0c7','stroke-width':'.8',class:'pulse train-glow',style:'animation-delay:'+(i*.11)+'s'},group('headNodes'));hn.push({x:l.x,y,node:n})}});
- const featureNodes=[];for(let r=0;r<5;r++)for(let col=0;col<3;col++)featureNodes.push({x:612+col*19,y:119+r*38+14});
- connect('connectionsC',featureNodes,hn,'#ffc56e',.32);
- hn.forEach((p,i)=>{let target=[{x:856,y:142},{x:856,y:217},{x:856,y:292}][i%3];el('path',{d:'M'+p.x+' '+p.y+' C820 '+p.y+' 824 '+target.y+' '+target.x+' '+target.y,stroke:'#ffc66e','stroke-opacity':'.34','stroke-width':'1',class:'flow'},group('connectionsC'))});
- const scenes=[
- {title:'Learn reusable visual features',text:'A model is pre-trained on a large source dataset. Early layers may learn edges and textures, while deeper layers can represent more complex patterns.',freeze:true,mode:'source'},
- {title:'Reuse the pre-trained backbone',text:'Instead of learning every weight from zero, we pass target images through the already learned backbone to extract useful representations.',freeze:true,mode:'reuse'},
- {title:'Train a new task-specific head',text:'The new head learns to map reused features to target labels. In feature extraction, the backbone stays frozen while the head learns.',freeze:true,mode:'head'},
- {title:'Fine-tune when adaptation is useful',text:'With an appropriate setup, selected backbone layers can be unfrozen and updated on target data. This can help adapt to domain shift, but overfitting is possible.',freeze:false,mode:'fine'}
+ const NS='http://www.w3.org/2000/svg';
+ const byId=id=>document.getElementById(id);
+ const svg=byId('transferStory');
+ if(!svg)return;
+ const make=(tag,attrs,parent)=>{const e=document.createElementNS(NS,tag);Object.entries(attrs||{}).forEach(([k,v])=>e.setAttribute(k,v));parent.appendChild(e);return e};
+ const layers=[
+  {id:0,x:220,y:115,n:5,dy:43,color:'#49d9f2',r:9,label:'Early layers'},
+  {id:1,x:350,y:128,n:6,dy:35,color:'#788aff',r:8,label:'Deep layers'},
+  {id:2,x:480,y:145,n:5,dy:40,color:'#a68cff',r:8,label:'High-level features'}
  ];
- let step=0,playing=true,timer=null;
- function showScene(i){step=(i+scenes.length)%scenes.length;const s=scenes[step];$s('storyNum').textContent=String(step+1).padStart(2,'0');$s('storyTitle').textContent=s.title;$s('storyText').textContent=s.text;document.querySelectorAll('.story-step').forEach((e,j)=>e.classList.toggle('active',j===step));$s('freezeLock').setAttribute('opacity',s.freeze?'1':'0');$s('fineTuneBadge').setAttribute('opacity',s.freeze?'0':'1');group('backboneNodes').querySelectorAll('circle').forEach((n,j)=>{let train=s.mode==='fine'&&j>=7;n.setAttribute('fill',train?'#ffb65d':layers[Math.min(2,Math.floor(j/6))].color);n.setAttribute('stroke',train?'#fff0bd':'#d7f8ff')});group('connectionsB').setAttribute('stroke',s.mode==='fine'?'#ffc66e':'#9a9aff');group('connectionsB').setAttribute('stroke-opacity',s.mode==='fine'?'.75':'.35');$s('travellingParticle').style.animationDuration=s.mode==='head'?'2.2s':'3.5s'}
- function start(){clearInterval(timer);if(playing)timer=setInterval(()=>showScene(step+1),5200);$s('storyPlay').textContent=playing?'Ⅱ Pause':'▶ Play';$s('storyPlay').classList.toggle('active',playing)}
- $s('storyPlay').addEventListener('click',()=>{playing=!playing;start()});$s('storyRestart').addEventListener('click',()=>{showScene(0);playing=true;start()});document.querySelectorAll('.story-step').forEach((e,i)=>e.addEventListener('click',()=>showScene(i)));showScene(0);start();
+ const nodes=[];
+ layers.forEach((layer,li)=>{let arr=[];for(let i=0;i<layer.n;i++){const y=layer.y+i*layer.dy;const circle=make('circle',{cx:layer.x,cy:y,r:layer.r,fill:layer.color,stroke:'#dffbff','stroke-width':1,class:'pulse frozen-glow',tabindex:0,role:'button','aria-label':layer.label+' layer', 'data-inspect':li},byId('storyLayerNodes'));circle.addEventListener('click',()=>selectLayer(li));circle.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();selectLayer(li)}});arr.push({x:layer.x,y,node:circle,li})}nodes.push(arr)});
+ const lines=byId('storyEdges');
+ function edge(a,b,color,opacity){return make('path',{d:'M'+a.x+' '+a.y+' L'+b.x+' '+b.y,stroke:color,'stroke-width':1,'stroke-opacity':opacity,fill:'none',class:'flow'},lines)}
+ const sourcePts=[{x:134,y:139},{x:134,y:276}];
+ sourcePts.forEach((p,i)=>nodes[0].forEach(q=>edge(p,q,'#49d9f2',.2)));
+ nodes[0].forEach(a=>nodes[1].forEach(b=>edge(a,b,'#49d9f2',.28)));
+ nodes[1].forEach(a=>nodes[2].forEach(b=>edge(a,b,'#a68cff',.3)));
+ const featureG=byId('storyFeatures');
+ make('rect',{x:585,y:92,width:92,height:250,rx:12,fill:'#132746',stroke:'#5c7de0','stroke-opacity':.8},featureG);
+ make('text',{x:631,y:78,'text-anchor':'middle',fill:'#c5c1ff','font-size':11},featureG).textContent='Feature maps';
+ for(let row=0;row<6;row++)for(let col=0;col<3;col++){make('rect',{x:597+col*24,y:111+row*34,width:18,height:27,rx:3,fill:['#1b5b87','#2a82a0','#524e9b','#316da2','#584ba5'][(row+col)%5],stroke:'#8fcfff','stroke-opacity':.35},featureG);make('circle',{cx:606+col*24,cy:121+row*34,r:5,fill:'url(#activationGlow)',class:'pulse'},featureG)}
+ const headG=byId('storyHeadNodes'),headNodes=[];
+ [{x:738,n:5,y:132,dy:40},{x:808,n:4,y:152,dy:47}].forEach((l,li)=>{for(let i=0;i<l.n;i++){let p={x:l.x,y:l.y+i*l.dy};p.node=make('circle',{cx:p.x,cy:p.y,r:8,fill:'#ffbf68',stroke:'#fff0c8','stroke-width':1,class:'pulse train-glow',tabindex:0,role:'button','data-inspect':2},headG);p.node.addEventListener('click',()=>selectLayer(2));headNodes.push(p)}});
+ headNodes.forEach((h,i)=>{nodes[2].forEach((a,j)=>edge(a,h,'#ffca7b',.15))});
+ const outG=byId('storyOutput');
+ [{y:115,t:'HEALTHY',color:'#69e6ba'},{y:205,t:'DISEASE A',color:'#ffcf7b'},{y:295,t:'DISEASE B',color:'#ff91b0'}].forEach(o=>{make('path',{d:'M816 '+o.y+' C840 '+o.y+' 836 '+o.y+' 854 '+o.y,stroke:o.color,'stroke-width':2,fill:'none',class:'flow'},outG);make('rect',{x:854,y:o.y-22,width:115,height:44,rx:9,fill:o.color,'fill-opacity':.09,stroke:o.color,'stroke-opacity':.8},outG);make('text',{x:911,y:o.y+4,'text-anchor':'middle',fill:o.color,'font-size':11,'font-family':'DM Mono,monospace'},outG).textContent=o.t});
+ const particleG=byId('storyParticles'),particles=[];
+ for(let i=0;i<12;i++){const p=make('circle',{cx:134,cy:140+(i%2)*137,r:3+(i%3),fill:i%2?'#a68cff':'#8cf8f0',opacity:.9,filter:'url(#softGlow)'},particleG);particles.push({node:p,t:i/12})}
+ const stageContent=[
+ {title:'Start with a pre-trained model',text:'The source model learned parameters from a large dataset before we begin this target task. Those parameters are a useful starting point—not a guarantee of success.',analogy:'Like a student who already knows shapes and textures before learning a new subject.',state:'SOURCE KNOWLEDGE',layer:1},
+ {title:'Reuse the backbone',text:'We keep the pre-trained feature extractor and pass target images through it. In feature extraction, backbone weights are frozen so they do not change during this stage.',analogy:'Keep the experienced team; give it a new assignment.',state:'BACKBONE FROZEN',layer:0},
+ {title:'Extract useful representations',text:'Convolutional layers transform pixels into feature maps. Earlier layers often capture local patterns; deeper layers may represent more task-specific structures.',analogy:'The network turns raw pixels into a more useful description of the image.',layer:1,state:'FEATURES EXTRACTED'},
+ {title:'Train a new classifier head',text:'The new head learns how to map the reused features to target labels. With feature extraction, the backbone remains fixed while the new head is trained.',analogy:'Keep the learned visual vocabulary, then teach the model the new class names.',layer:2,state:'HEAD TRAINABLE'},
+ {title:'Choose whether to fine-tune',text:'Fine-tuning unfreezes selected pre-trained layers and updates them on target data. It may help when the domains differ, but needs careful learning rates and validation to reduce overfitting.',analogy:'Now the experienced team can adapt some of its methods to the new task.',layer:1,state:'ADAPTATION STAGE'}
+ ];
+ let stage=0,strategy='feature',playing=false,timer=null,last=performance.now(),elapsed=0,selectedLayer=0;
+ const duration=4200;
+ function renderStage(i){stage=Math.max(0,Math.min(4,i));const s=stageContent[stage];byId('storyTimeline').value=stage;byId('stageBadge').textContent='STAGE '+String(stage+1).padStart(2,'0')+' / 05';byId('stageState').textContent=strategy==='fine'&&stage===4?'SELECTED LAYERS TRAINABLE':s.state;byId('storyEyebrow').textContent='TEACHING NOTE · '+String(stage+1).padStart(2,'0');byId('storyTitle').textContent=s.title;byId('storyText').textContent=s.text;byId('storyAnalogy').textContent=s.analogy;document.querySelectorAll('.pro-step').forEach((b,j)=>b.classList.toggle('active',j===stage));byId('storyLock').setAttribute('opacity',strategy==='feature'||strategy==='scratch'||stage<4?'1':'0');byId('storyAdapt').setAttribute('opacity',strategy==='fine'&&stage===4?'1':'0');updateLayerStates();selectLayer(s.layer,false);updateParticles(0)}
+ function updateLayerStates(){const states=strategy==='feature'?['FROZEN','FROZEN','TRAINABLE']:strategy==='fine'?['OPTIONAL','OPTIONAL','TRAINABLE']:['TRAINABLE','TRAINABLE','TRAINABLE'];states.forEach((s,i)=>byId('state'+i).textContent=s);nodes.forEach((arr,li)=>arr.forEach(p=>{const train=strategy==='scratch'||(strategy==='fine'&&stage===4&&li>0);p.node.setAttribute('fill',train?'#ffbd69':layers[li].color);p.node.setAttribute('stroke',train?'#fff0c8':'#dffbff');p.node.style.opacity=(selectedLayer===li?1:.8);p.node.style.filter=selectedLayer===li?'drop-shadow(0 0 8px '+(train?'#ffbd69':'#6ce5df')+')':''}));headNodes.forEach(p=>p.node.style.filter=selectedLayer===2?'drop-shadow(0 0 8px #ffbd69)':'');byId('storyEdges').style.opacity=strategy==='scratch'?'1':'.9'}
+ function selectLayer(i,updateText=true){selectedLayer=i;document.querySelectorAll('.pro-layer').forEach((b,j)=>b.classList.toggle('active',j===i));const detail=[
+ 'Early convolutional layers often respond to local patterns such as edges, color transitions and textures. These representations can sometimes transfer across tasks.',
+ 'Deeper layers combine simpler signals into more complex patterns. Their usefulness can depend more strongly on how related the source and target tasks are.',
+ 'The task-specific head maps learned features to target labels. It is commonly initialized for the new task and trained using labeled target examples.'
+ ];byId('layerDetail').textContent=detail[i];if(updateText)updateLayerStates()}
+ document.querySelectorAll('.pro-layer').forEach((b,i)=>b.addEventListener('click',()=>selectLayer(i)));
+ document.querySelectorAll('[data-strategy]').forEach(b=>b.addEventListener('click',()=>{strategy=b.dataset.strategy;document.querySelectorAll('[data-strategy]').forEach(x=>x.classList.toggle('active',x===b));renderStage(stage)}));
+ document.querySelectorAll('.pro-step').forEach(b=>b.addEventListener('click',()=>{renderStage(+b.dataset.stage);if(playing)start()}));
+ byId('storyTimeline').addEventListener('input',e=>{renderStage(+e.target.value);if(playing)start()});
+ byId('storyPrev').addEventListener('click',()=>{renderStage(stage-1);if(playing)start()});byId('storyNext').addEventListener('click',()=>{renderStage(stage+1);if(playing)start()});
+ byId('storySpeed').addEventListener('input',e=>{byId('storySpeedLabel').textContent=e.target.value+'×';if(playing)start()});
+ function updateParticles(t){const speed=+byId('storySpeed').value;particles.forEach((p,i)=>{let v=(t*speed*.00018+p.t)%1;let x,y;if(v<.2){let q=v/.2;x=134+q*86;y=140+(i%2)*137+q*(80-(i%2)*80)}else if(v<.45){let q=(v-.2)/.25;x=220+q*130;y=210+Math.sin(q*Math.PI)*30+(i%3-1)*15}else if(v<.65){let q=(v-.45)/.2;x=350+q*130;y=210+Math.sin(q*Math.PI)*22+(i%4-2)*11}else if(v<.78){let q=(v-.65)/.13;x=480+q*145;y=210+(i%5-2)*22}else{let q=(v-.78)/.22;x=625+q*190;y=210+(i%3-1)*38}p.node.setAttribute('cx',x);p.node.setAttribute('cy',y)})}
+ function frame(now){if(playing){if(now-last>duration/(+byId('storySpeed').value)){last=now;if(stage<4)renderStage(stage+1);else{renderStage(0)}}updateParticles(now)}requestAnimationFrame(frame)}
+ function start(){playing=!playing;last=performance.now();byId('storyPlay').textContent=playing?'Ⅱ Pause lesson':'▶ Play lesson';byId('storyPlay').classList.toggle('active',playing)}
+ byId('storyPlay').addEventListener('click',start);byId('storyRestart').addEventListener('click',()=>{playing=false;byId('storyPlay').textContent='▶ Play lesson';byId('storyPlay').classList.remove('active');renderStage(0);updateParticles(0)});
+ renderStage(0);requestAnimationFrame(frame);
 })();
-\n</script>
+</script>
 </body>
 </html>
