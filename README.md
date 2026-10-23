@@ -6,6 +6,9 @@ TransferLab is a browser-based educational prototype for explaining CNN layers a
 
 - Responsive single-page interface.
 - CNN convolution calculator for output shape and trainable parameter count.
+- Presenter-controlled transfer-learning animation with guided lesson and free-exploration modes.
+- Five manually selectable lesson stages, play/pause/restart, speed control, and a layer inspector.
+- Cinematic depth styling with animated feature-flow particles.
 - Transfer-learning strategy explorer: feature extraction, fine-tuning, and training from scratch.
 - Qualitative controls for target-data size, source–target domain gap, and compute budget.
 - Knowledge-check quiz with explanations.
@@ -24,6 +27,10 @@ The page uses Google Fonts when an internet connection is available. The core in
 ## Deploy
 
 The repository can be deployed as a static site with GitHub Pages or Vercel. For GitHub Pages, choose the `main` branch and the root folder in the repository's Pages settings.
+
+## Presenter controls
+
+Open the **Transfer Learning** animation section. Use **Guided lesson** for a structured sequence or **Free explore** to move directly between stages. Use the timeline and Previous/Next buttons to navigate, change animation speed, and select early layers, deep layers, or the classifier head to read an explanation.
 
 ## Important scientific scope
 
