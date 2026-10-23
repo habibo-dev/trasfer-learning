@@ -44,3 +44,8 @@ For a research comparison, document the dataset and split policy, model architec
 - Add an actual image-classification demo after selecting a dataset and inference approach.
 - Add experiment logging and measured comparisons only after training has been run.
 - Expand the lesson library with references and more interactive diagrams.
+
+
+## Domain Shift Lab
+
+The interactive Domain Shift section uses an illustrative feature-space diagram to explain how source and target representations may differ. Select a target scenario (lighting/sensor shift, plant-disease textures, satellite imagery, or an unrelated domain), adjust the illustrative gap, and toggle source/target feature clouds. The diagram is conceptual only: its positions and gap control are not empirical measurements, and it does not produce model accuracy or train a neural network.
