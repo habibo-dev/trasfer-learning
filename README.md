@@ -1,0 +1,39 @@
+# TransferLab — Interactive Deep Learning Studio
+
+TransferLab is a browser-based educational prototype for explaining CNN layers and transfer learning. It is intended for classroom demonstrations and independent study.
+
+## What is included
+
+- Responsive single-page interface.
+- CNN convolution calculator for output shape and trainable parameter count.
+- Transfer-learning strategy explorer: feature extraction, fine-tuning, and training from scratch.
+- Qualitative controls for target-data size, source–target domain gap, and compute budget.
+- Knowledge-check quiz with explanations.
+- English-first academic terminology plus a short Arabic concept summary.
+- Clear separation between illustrative guidance and measured results.
+
+## Run locally
+
+No build step is required for this first prototype:
+
+1. Download or clone this repository.
+2. Open `index.html` in a modern browser.
+
+The page uses Google Fonts when an internet connection is available. The core interface and calculations use vanilla HTML, CSS, and JavaScript.
+
+## Deploy
+
+The repository can be deployed as a static site with GitHub Pages or Vercel. For GitHub Pages, choose the `main` branch and the root folder in the repository's Pages settings.
+
+## Important scientific scope
+
+This prototype does **not** train a neural network, load a real dataset, or report measured accuracy. Diagrams are conceptual; the CNN calculator performs mathematical calculations from the user's selected settings. Transfer-learning recommendations are qualitative hypotheses, not experimental findings.
+
+For a research comparison, document the dataset and split policy, model architecture and pre-trained weights, preprocessing, trainable layers, optimizer, learning rate, epochs, random seeds, validation method, test metrics, class imbalance, and limitations. Evaluate competing strategies on the same held-out target test set.
+
+## Roadmap
+
+- Add documented dataset examples and a reproducible training notebook.
+- Add an actual image-classification demo after selecting a dataset and inference approach.
+- Add experiment logging and measured comparisons only after training has been run.
+- Expand the lesson library with references and more interactive diagrams.
